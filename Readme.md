@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Сергей Резник](https://up.htmlacademy.ru/javascript/32/user/262461).
-* Наставник: `Неизвестно`.
+* Наставник: [Никита Сигов](https://htmlacademy.ru/profile/crazer).
 
 ---
 
