@@ -1,14 +1,16 @@
 //Подсчитать дину строки
-function strLenth(phrase, charCount) {
+function strLength(phrase, charCount) {
   const result = phrase.length;
   if (result <= charCount) {
-    console.log(`Длина фразы достаточна ${result}`);
+    let isTrue = `Длина фразы достаточна ${result}`;
+    return isTrue;
   } else {
-    console.log(`Слишком много знаков ${result}`);
+    let isFalse = `Слишком много знаков ${result}`;
+    return isFalse;
   }
 }
 
-strLenth('объявить параметры', 20);
+strLength('объявить параметры', 20);
 
 // Строка является палиндромом
 
@@ -19,9 +21,11 @@ function isPalindrom(phrase) {
     result += source[i];
   }
   if(source === result) {
-    console.log(`Фраза "${result}" палиндром`);
+    let isTrue = `Фраза "${result}" палиндром`;
+    return isTrue;
   } else {
-    console.log(`Фраза "${result}" не палиндром`);
+    let isFalse = `Фраза "${result}" не палиндром`;
+    return isFalse;
   }
 }
 
