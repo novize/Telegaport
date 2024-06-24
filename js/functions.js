@@ -15,10 +15,10 @@ strLength('объявить параметры', 10);
 function isPalindrom(phrase) {
   const source = phrase.replaceAll(' ', '').toLowerCase();
   let result = '';
-  for(let i = source.length - 1; i >= 0; i--) {
+  for (let i = source.length - 1; i >= 0; i--) {
     result += source[i];
   }
-  if(source === result) {
+  if (source === result) {
     return true;
   } else {
     return false;
@@ -31,15 +31,17 @@ isPalindrom('Лёша на полке клопа нашёл ');
 
 
 function numberExtractor(param) {
-  let source = param.toString();
-  console.log(source);
-  let output = "";
-  console.log(output);
-
-  for (let i = 0; i < source.length; i++) {
-    output += parseInt((source[i]), 10);
-    console.log(output);
+  const source = param.toString();
+  let output = '';
+  for (let i = 0; i <= source.length; i++) {
+    if (!Number.isNaN(parseInt(source[i], 10))) {
+      output += source[i];
+    }
   }
+  if (output === '') {
+    return NaN;
+  }
+  return output;
 }
 
-console.log(numberExtractor('2023'));
+numberExtractor('ECMAScript 2022');
