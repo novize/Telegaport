@@ -2,15 +2,13 @@
 function strLength(phrase, charCount) {
   const result = phrase.length;
   if (result <= charCount) {
-    let isTrue = `Длина фразы достаточна ${result}`;
-    return isTrue;
+    return true;
   } else {
-    let isFalse = `Слишком много знаков ${result}`;
-    return isFalse;
+    return false;
   }
 }
 
-strLength('объявить параметры', 20);
+strLength('объявить параметры', 10);
 
 // Строка является палиндромом
 
@@ -21,14 +19,27 @@ function isPalindrom(phrase) {
     result += source[i];
   }
   if(source === result) {
-    let isTrue = `Фраза "${result}" палиндром`;
-    return isTrue;
+    return true;
   } else {
-    let isFalse = `Фраза "${result}" не палиндром`;
-    return isFalse;
+    return false;
   }
 }
 
 isPalindrom('Лёша на полке клопа нашёл ');
 
 // Извлечение целого числа
+
+
+function numberExtractor(param) {
+  let source = param.toString();
+  console.log(source);
+  let output = "";
+  console.log(output);
+
+  for (let i = 0; i < source.length; i++) {
+    output += parseInt((source[i]), 10);
+    console.log(output);
+  }
+}
+
+console.log(numberExtractor('2023'));
