@@ -1,6 +1,6 @@
 // Функция по заполнению массивов
-function arrayFiller (source, array) {
-  for (let i = 1; i <= source; i++) {
+function arrayFiller (source, array, count) {
+  for (let i = count; i <= source; i++) {
     array.push(i);
   }
 }
@@ -9,14 +9,14 @@ const PHOTOS_ITEMS = 25;
 
 // Создание массива PHOTO_ITEM_ID по количеству постов
 const PHOTO_ITEM_ID = [];
-arrayFiller(PHOTOS_ITEMS, PHOTO_ITEM_ID);
+arrayFiller(PHOTOS_ITEMS, PHOTO_ITEM_ID, 1);
 
 // Копия массива PHOTO_ITEM_ID для генерации уникальных ID
 const uniqPhotoItemIds = PHOTO_ITEM_ID.slice();
 
 // Создание массива PHOTO_URL, соответствует по количеству PHOTOS_ITEMS
 const PHOTO_URL = [];
-arrayFiller(PHOTOS_ITEMS, PHOTO_URL);
+arrayFiller(PHOTOS_ITEMS, PHOTO_URL, 1);
 
 // Копия массива PHOTO_URL для генерации уникальных URL
 const uniqUrls = PHOTO_URL.slice();
@@ -53,14 +53,14 @@ const DESCRIPTION = [
 // Создание массива с количеством лайков
 const MAX_LIKES_COUNT = 200;
 const LIKES = [];
-arrayFiller(MAX_LIKES_COUNT, LIKES);
+arrayFiller(MAX_LIKES_COUNT, LIKES, 15);
 
 const COMMENTS_COUNT = 30;
 const MAX_COMMENT_COUNT = 150;
 
 // Создание массива COMMENT_ID по возможному количеству комментариев
 const COMMENT_ID = [];
-arrayFiller(MAX_COMMENT_COUNT, COMMENT_ID);
+arrayFiller(MAX_COMMENT_COUNT, COMMENT_ID, 1);
 
 // Копия массива COMMENT_ID для генерации уникальных ID
 const availableCommentIds = COMMENT_ID.slice();
@@ -68,7 +68,7 @@ const availableCommentIds = COMMENT_ID.slice();
 // Создание массива с количеством аватаров
 const MAX_AVATARS_COUNT = 6;
 const AVATAR_ID = [];
-arrayFiller(MAX_AVATARS_COUNT, AVATAR_ID);
+arrayFiller(MAX_AVATARS_COUNT, AVATAR_ID, 1);
 
 // Массив с именами комментаторов
 const COMMENTATORS_NAMES = [
@@ -116,4 +116,4 @@ const createPhotoItem = () => ({
   comments: getRandomElement(COMMENT),
 });
 
-Array.from({length: PHOTOS_ITEMS}, createPhotoItem);
+console.log(Array.from({length: PHOTOS_ITEMS}, createPhotoItem));
