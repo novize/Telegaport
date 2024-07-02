@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> 23c812cd5c40f58c8e008b3dcb70b88230e4ea5d
 // Функция по заполнению массивов
 function arrayFiller (source, array, count) {
   for (let i = count; i <= source; i++) {
@@ -110,6 +113,7 @@ const createComment = () => ({
 
 const COMMENT = Array.from({length: COMMENTS_COUNT}, createComment);
 
+<<<<<<< HEAD
 const generateComments = () => {
   const numComments = getRandomInt(0, 30); // генерируем случайное количество комментариев от 0 до 30
   const commentsArray = [];
@@ -119,11 +123,14 @@ const generateComments = () => {
   return commentsArray;
 }
 
+=======
+>>>>>>> 23c812cd5c40f58c8e008b3dcb70b88230e4ea5d
 const createPhotoItem = () => ({
   id: getUniqueElement(uniqPhotoItemIds),
   url: `photos/${getUniqueElement(uniqUrls)}.jpg`,
   description: getRandomElement(DESCRIPTION),
   likes: getRandomElement(LIKES),
+<<<<<<< HEAD
   comments: generateComments(),
 });
 
@@ -131,3 +138,9 @@ console.log(Array.from({length: PHOTOS_ITEMS}, createPhotoItem));
 
 //console.log(COMMENT);
 >>>>>>> Stashed changes
+=======
+  comments: getRandomElement(COMMENT),
+});
+
+console.log(Array.from({length: PHOTOS_ITEMS}, createPhotoItem));
+>>>>>>> 23c812cd5c40f58c8e008b3dcb70b88230e4ea5d
