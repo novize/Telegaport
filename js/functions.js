@@ -41,7 +41,7 @@ function numberExtractor(param) {
   if (output === '') {
     return NaN;
   }
-  return output;
+  return +output;
 }
 
 numberExtractor('ECMAScript 2022');
