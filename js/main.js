@@ -1,33 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> 23c812cd5c40f58c8e008b3dcb70b88230e4ea5d
-// Функция по заполнению массивов
-function arrayFiller (source, array, count) {
-  for (let i = count; i <= source; i++) {
-    array.push(i);
-  }
-}
-
-const PHOTOS_ITEMS = 25;
-
-// Создание массива PHOTO_ITEM_ID по количеству постов
-const PHOTO_ITEM_ID = [];
-arrayFiller(PHOTOS_ITEMS, PHOTO_ITEM_ID, 1);
-
-// Копия массива PHOTO_ITEM_ID для генерации уникальных ID
-const uniqPhotoItemIds = PHOTO_ITEM_ID.slice();
-
-// Создание массива PHOTO_URL, соответствует по количеству PHOTOS_ITEMS
-const PHOTO_URL = [];
-arrayFiller(PHOTOS_ITEMS, PHOTO_URL, 1);
-
-// Копия массива PHOTO_URL для генерации уникальных URL
-const uniqUrls = PHOTO_URL.slice();
+const posts = 25;
+const minLikesCount = 15;
+const maxLikesCount = 200;
+const commentsCount = 30;
+const avatarsCount = 6;
 
 // Массив с описаниями фотографий
-const DESCRIPTION = [
+const DESCRIPTIONS = [
   'Красная роза в утренних каплях росы',
   'Нежный белый тюльпан на фоне зелёной лужайки',
   'Фиолетовый ирис в солнечном свете полудня',
@@ -55,33 +33,13 @@ const DESCRIPTION = [
   'Нежные анемоны в букете',
 ];
 
-// Создание массива с количеством лайков
-const MAX_LIKES_COUNT = 200;
-const LIKES = [];
-arrayFiller(MAX_LIKES_COUNT, LIKES, 15);
-
-const COMMENTS_COUNT = 30;
-const MAX_COMMENT_COUNT = 150;
-
-// Создание массива COMMENT_ID по возможному количеству комментариев
-const COMMENT_ID = [];
-arrayFiller(MAX_COMMENT_COUNT, COMMENT_ID, 1);
-
-// Копия массива COMMENT_ID для генерации уникальных ID
-const availableCommentIds = COMMENT_ID.slice();
-
-// Создание массива с количеством аватаров
-const MAX_AVATARS_COUNT = 6;
-const AVATAR_ID = [];
-arrayFiller(MAX_AVATARS_COUNT, AVATAR_ID, 1);
-
 // Массив с именами комментаторов
 const COMMENTATORS_NAMES = [
   'Алексей', 'Мария', 'Игорь', 'Екатерина', 'Дмитрий', 'Анна', 'Владимир', 'Ольга', 'Иван', 'Юлия', 'Николай', 'Светлана', 'Сергей', 'Наталья', 'Андрей', 'Елена', 'Александр', 'Татьяна', 'Михаил', 'Алёна', 'Виктор', 'Ирина', 'Павел', 'Евгения', 'Роман', 'Людмила', 'Константин', 'Вероника', 'Максим', 'Алиса'
 ];
 
 //Массив с комментариями
-const MESSAGE = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -97,50 +55,32 @@ const getRandomInt = (a, b) => {
   return Math.floor(result);
 };
 
-const getRandomElement = (elements) => elements[getRandomInt(0, elements.length - 1)];
-
-const getUniqueElement = (elements) => {
-  const [element] = elements.splice(getRandomInt(0, elements.length - 1), 1);
-  return element;
+function idGenerator() {
+  let idCount = 0;
+  return () => idCount = ++idCount;
 };
 
-const createComment = () => ({
-  id: getUniqueElement(availableCommentIds),
-  avatar: `img/avatar-${getRandomElement(AVATAR_ID)}.svg`,
-  message: getRandomElement(MESSAGE),
+const getRandomElement = (elements) => elements[getRandomInt(0, elements.length - 1)];
+
+const createdIdPost = idGenerator();
+const createdPhotoUrl = idGenerator();
+
+const createComment = (createdIdComment) => ({
+  id: createdIdComment(),
+  avatar: `img/avatar-${getRandomInt(1, avatarsCount)}.svg`,
+  message: getRandomElement(MESSAGES),
   name: getRandomElement(COMMENTATORS_NAMES),
 });
 
-const COMMENT = Array.from({length: COMMENTS_COUNT}, createComment);
+const createPost = () => {
+  const createdIdComment = idGenerator();
+  return {
+    id: createdIdPost(),
+    url: `photos/${createdPhotoUrl()}.jpg`,
+    description: getRandomElement(DESCRIPTIONS),
+    likes: getRandomInt(minLikesCount, maxLikesCount),
+    comments: Array.from({ length: getRandomInt(1, commentsCount) }, () => createComment(createdIdComment)),
+  };
+};
 
-<<<<<<< HEAD
-const generateComments = () => {
-  const numComments = getRandomInt(0, 30); // генерируем случайное количество комментариев от 0 до 30
-  const commentsArray = [];
-  for (let i = 1; i <= numComments; i++) {
-    commentsArray.push(createComment());
-  }
-  return commentsArray;
-}
-
-=======
->>>>>>> 23c812cd5c40f58c8e008b3dcb70b88230e4ea5d
-const createPhotoItem = () => ({
-  id: getUniqueElement(uniqPhotoItemIds),
-  url: `photos/${getUniqueElement(uniqUrls)}.jpg`,
-  description: getRandomElement(DESCRIPTION),
-  likes: getRandomElement(LIKES),
-<<<<<<< HEAD
-  comments: generateComments(),
-});
-
-console.log(Array.from({length: PHOTOS_ITEMS}, createPhotoItem));
-
-//console.log(COMMENT);
->>>>>>> Stashed changes
-=======
-  comments: getRandomElement(COMMENT),
-});
-
-console.log(Array.from({length: PHOTOS_ITEMS}, createPhotoItem));
->>>>>>> 23c812cd5c40f58c8e008b3dcb70b88230e4ea5d
+console.log(Array.from({ length: posts }, createPost));
