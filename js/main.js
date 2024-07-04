@@ -1,10 +1,9 @@
-const posts = 25;
-const minLikesCount = 15;
-const maxLikesCount = 200;
-const commentsCount = 30;
-const avatarsCount = 6;
+const POSTS = 25;
+const MIN_LIKES_COUNT = 15;
+const MAX_LIKES_COUNT = 200;
+const COMMENTS_COUNT = 30;
+const AVATARS_COUNT = 6;
 
-// Массив с описаниями фотографий
 const DESCRIPTIONS = [
   'Красная роза в утренних каплях росы',
   'Нежный белый тюльпан на фоне зелёной лужайки',
@@ -33,12 +32,10 @@ const DESCRIPTIONS = [
   'Нежные анемоны в букете',
 ];
 
-// Массив с именами комментаторов
 const COMMENTATORS_NAMES = [
   'Алексей', 'Мария', 'Игорь', 'Екатерина', 'Дмитрий', 'Анна', 'Владимир', 'Ольга', 'Иван', 'Юлия', 'Николай', 'Светлана', 'Сергей', 'Наталья', 'Андрей', 'Елена', 'Александр', 'Татьяна', 'Михаил', 'Алёна', 'Виктор', 'Ирина', 'Павел', 'Евгения', 'Роман', 'Людмила', 'Константин', 'Вероника', 'Максим', 'Алиса'
 ];
 
-//Массив с комментариями
 const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -48,7 +45,7 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const getRandomInt = (a, b) => {
+const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
   const result = Math.random() * (upper - lower + 1) + lower;
@@ -57,17 +54,22 @@ const getRandomInt = (a, b) => {
 
 function idGenerator() {
   let idCount = 0;
-  return () => idCount = ++idCount;
-};
+  return function () {
+    idCount += 1;
+    return idCount;
+  };
+}
 
-const getRandomElement = (elements) => elements[getRandomInt(0, elements.length - 1)];
+function getRandomElement(elements) {
+  return elements[getRandomInteger(0, elements.length - 1)];
+}
 
 const createdIdPost = idGenerator();
 const createdPhotoUrl = idGenerator();
 
 const createComment = (createdIdComment) => ({
   id: createdIdComment(),
-  avatar: `img/avatar-${getRandomInt(1, avatarsCount)}.svg`,
+  avatar: `img/avatar-${getRandomInteger(1, AVATARS_COUNT)}.svg`,
   message: getRandomElement(MESSAGES),
   name: getRandomElement(COMMENTATORS_NAMES),
 });
@@ -78,9 +80,9 @@ const createPost = () => {
     id: createdIdPost(),
     url: `photos/${createdPhotoUrl()}.jpg`,
     description: getRandomElement(DESCRIPTIONS),
-    likes: getRandomInt(minLikesCount, maxLikesCount),
-    comments: Array.from({ length: getRandomInt(1, commentsCount) }, () => createComment(createdIdComment)),
+    likes: getRandomInteger(MIN_LIKES_COUNT, MAX_LIKES_COUNT),
+    comments: Array.from({ length: getRandomInteger(1, COMMENTS_COUNT) }, () => createComment(createdIdComment)),
   };
 };
 
-console.log(Array.from({ length: posts }, createPost));
+Array.from({ length: POSTS }, createPost);
