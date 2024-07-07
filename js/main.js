@@ -1,4 +1,6 @@
-import './data.js';
+import {POSTS, MIN_LIKES_COUNT, MAX_LIKES_COUNT, COMMENTS_COUNT, AVATARS_COUNT, DESCRIPTIONS, COMMENTATORS_NAMES, MESSAGES} from './data.js';
+import {getRandomElement} from './util.js';
+
 
 function idGenerator() {
   let idCount = 0;

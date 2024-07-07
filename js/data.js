@@ -1,4 +1,3 @@
-import {getRandomElement} from './util.js';
 
 const POSTS = 25;
 const MIN_LIKES_COUNT = 15;
@@ -48,3 +47,4 @@ const MESSAGES = [
 ];
 
 
+export {POSTS, MIN_LIKES_COUNT, MAX_LIKES_COUNT, COMMENTS_COUNT, AVATARS_COUNT, DESCRIPTIONS, COMMENTATORS_NAMES, MESSAGES};
