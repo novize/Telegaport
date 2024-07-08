@@ -1,3 +1,4 @@
+
 function strLength(phrase, charCount) {
   const result = phrase.length;
   if (result <= charCount) {
@@ -39,3 +40,22 @@ function numberExtractor(param) {
 }
 
 numberExtractor('ECMAScript 2022');
+
+
+const stringConverter = (string) => {
+  string = string.split(':');
+  string = (parseInt(string[0], 10) * 60 + parseInt(string[1], 10));
+  return string;
+};
+
+const isLegalTime = (startWorkingDay, endWorkingDay, startMeet, durationMeet) => {
+  startWorkingDay = stringConverter(startWorkingDay);
+  endWorkingDay = stringConverter(endWorkingDay);
+  startMeet = stringConverter(startMeet);
+  if ((endWorkingDay - startWorkingDay) >= durationMeet && (endWorkingDay - startMeet) >= durationMeet) {
+    return true;
+  }
+  return false;
+};
+
+isLegalTime('08:00', '17:30', '14:00', 90);
