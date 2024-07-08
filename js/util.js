@@ -5,9 +5,26 @@ const getRandomInteger = (a, b) => {
   return Math.floor(result);
 };
 
-
-function getRandomElement(elements) {
+const getRandomElement = (elements) => {
   return elements[getRandomInteger(0, elements.length - 1)];
 }
 
-export {getRandomElement};
+const idGenerator = () => {
+  let idCount = 0;
+  return () => {
+    idCount += 1;
+    return idCount;
+  };
+};
+
+const createdIdPost = idGenerator();
+const createdPhotoUrl = idGenerator();
+const createdIdComment = idGenerator();
+
+export { getRandomInteger };
+export { getRandomElement };
+
+export { idGenerator };
+export { createdIdPost };
+export { createdPhotoUrl };
+export { createdIdComment };

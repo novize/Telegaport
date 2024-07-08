@@ -1,14 +1,7 @@
-
-import { getRandomElement } from './util.js';
-import { getRandomInteger } from './util.js';
+import { POSTS, MIN_LIKES_COUNT, MAX_LIKES_COUNT, COMMENTS_COUNT, DESCRIPTIONS } from './data.js';
 
 import { createdIdPost } from './util.js';
 import { createdPhotoUrl } from './util.js';
-
-import { createComment } from './comments.js';
-
-import {thePost} from './posts.js';
-/*
 
 const createPost = () => ({
   id: createdIdPost(),
@@ -22,5 +15,4 @@ const thePost = () => {
   return Array.from({ length: POSTS }, createPost);
 }
 
-console.log(thePost());
-*/
+export {thePost};
