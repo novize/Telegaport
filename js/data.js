@@ -46,5 +46,4 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-
-export {POSTS, MIN_LIKES_COUNT, MAX_LIKES_COUNT, COMMENTS_COUNT, AVATARS_COUNT, DESCRIPTIONS, COMMENTATORS_NAMES, MESSAGES};
+export { POSTS, MIN_LIKES_COUNT, MAX_LIKES_COUNT, COMMENTS_COUNT, AVATARS_COUNT, DESCRIPTIONS, COMMENTATORS_NAMES, MESSAGES };

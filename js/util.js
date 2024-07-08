@@ -7,7 +7,7 @@ const getRandomInteger = (a, b) => {
 
 const getRandomElement = (elements) => {
   return elements[getRandomInteger(0, elements.length - 1)];
-}
+};
 
 const idGenerator = () => {
   let idCount = 0;

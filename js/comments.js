@@ -8,7 +8,7 @@ import { createdIdComment } from './util.js';
 const createComment = () => ({
   id: createdIdComment(),
   avatar: `img/avatar-${getRandomInteger(1, AVATARS_COUNT)}.svg`,
-  message: Array.from({ length: getRandomInteger(1, 2) }, () => getRandomElement(MESSAGES)).join(),
+  message: Array.from({ length: getRandomInteger(1, 2) }, () => getRandomElement(MESSAGES)).join(' '),
   name: getRandomElement(COMMENTATORS_NAMES)
 });
 
