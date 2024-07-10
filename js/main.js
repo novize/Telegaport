@@ -1,3 +1,3 @@
-import { thePost } from './posts.js';
+import { postsGenerator } from './posts.js';
 
-thePost();
+postsGenerator();
