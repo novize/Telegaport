@@ -1,4 +1,4 @@
-//Подсчитать дину строки
+
 function strLength(phrase, charCount) {
   const result = phrase.length;
   if (result <= charCount) {
@@ -9,8 +9,6 @@ function strLength(phrase, charCount) {
 }
 
 strLength('объявить параметры', 10);
-
-// Строка является палиндромом
 
 function isPalindrom(phrase) {
   const source = phrase.replaceAll(' ', '').toLowerCase();
@@ -27,9 +25,6 @@ function isPalindrom(phrase) {
 
 isPalindrom('Лёша на полке клопа нашёл ');
 
-// Извлечение целого числа
-
-
 function numberExtractor(param) {
   const source = param.toString();
   let output = '';
@@ -45,3 +40,22 @@ function numberExtractor(param) {
 }
 
 numberExtractor('ECMAScript 2022');
+
+
+const stringConverter = (string) => {
+  string = string.split(':');
+  string = (parseInt(string[0], 10) * 60 + parseInt(string[1], 10));
+  return string;
+};
+
+const isLegalTime = (startWorkingDay, endWorkingDay, startMeet, durationMeet) => {
+  startWorkingDay = stringConverter(startWorkingDay);
+  endWorkingDay = stringConverter(endWorkingDay);
+  startMeet = stringConverter(startMeet);
+  if ((endWorkingDay - startWorkingDay) >= durationMeet && (endWorkingDay - startMeet) >= durationMeet) {
+    return true;
+  }
+  return false;
+};
+
+isLegalTime('08:00', '17:30', '14:00', 90);
