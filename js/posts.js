@@ -1,10 +1,6 @@
 import { POSTS, MIN_LIKES_COUNT, MAX_LIKES_COUNT, COMMENTS_COUNT, DESCRIPTIONS } from './data.js';
 
-import { getRandomElement } from './util.js';
-import { getRandomInteger } from './util.js';
-
-import { createdIdPost } from './util.js';
-import { createdPhotoUrl } from './util.js';
+import { getRandomInteger, createdIdPost, createdPhotoUrl, getRandomElement } from './util.js';
 
 import { createComment } from './comments.js';
 
@@ -16,8 +12,8 @@ const createPost = () => ({
   comments: Array.from({ length: getRandomInteger(0, COMMENTS_COUNT) }, createComment),
 });
 
-const thePost = () => {
+const postsGenerator = () => {
   return Array.from({ length: POSTS }, createPost);
 };
 
-export { thePost };
+export { postsGenerator };

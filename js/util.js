@@ -21,10 +21,5 @@ const createdIdPost = idGenerator();
 const createdPhotoUrl = idGenerator();
 const createdIdComment = idGenerator();
 
-export { getRandomInteger };
-export { getRandomElement };
+export { idGenerator, createdIdPost, createdPhotoUrl, createdIdComment, getRandomInteger, getRandomElement };
 
-export { idGenerator };
-export { createdIdPost };
-export { createdPhotoUrl };
-export { createdIdComment };

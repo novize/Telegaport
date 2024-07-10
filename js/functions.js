@@ -42,10 +42,10 @@ function numberExtractor(param) {
 numberExtractor('ECMAScript 2022');
 
 
-const stringConverter = (string) => {
-  string = string.split(':');
-  string = (parseInt(string[0], 10) * 60 + parseInt(string[1], 10));
-  return string;
+const stringConverter = (stringToInt) => {
+  stringToInt = stringToInt.split(':');
+  stringToInt = (parseInt(stringToInt[0], 10) * 60 + parseInt(stringToInt[1], 10));
+  return stringToInt;
 };
 
 const isLegalTime = (startWorkingDay, endWorkingDay, startMeet, durationMeet) => {
