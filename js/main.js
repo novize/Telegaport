@@ -1,3 +1,5 @@
 import { postsGenerator } from './posts.js';
+import {generateThumbnails} from './thumbnails.js';
 
-postsGenerator();
+
+generateThumbnails(postsGenerator());
