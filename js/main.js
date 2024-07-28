@@ -1,4 +1,6 @@
+import './full-size-image.js';
 import { postsGenerator } from './posts.js';
 import { generateThumbnails } from './thumbnails.js';
 
-generateThumbnails(postsGenerator());
+const posts = postsGenerator();
+generateThumbnails(posts);

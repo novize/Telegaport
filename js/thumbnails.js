@@ -1,13 +1,17 @@
+import { addThumbnailClickListener } from './full-size-image.js';
+
 const thumbNailTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const container = document.querySelector('.pictures');
 
-const createThumbnail = ({ url, description, likes, comments }) => {
+const createThumbnail = (picture) => {
   const thumbnail = thumbNailTemplate.cloneNode(true);
 
-  thumbnail.querySelector('.picture__img').src = url;
-  thumbnail.querySelector('.picture__img').alt = description;
-  thumbnail.querySelector('.picture__likes').textContent = likes;
-  thumbnail.querySelector('.picture__comments').textContent = comments.length;
+  thumbnail.querySelector('.picture__img').src = picture.url;
+  thumbnail.querySelector('.picture__img').alt = picture.description;
+  thumbnail.querySelector('.picture__likes').textContent = picture.likes;
+  thumbnail.querySelector('.picture__comments').textContent = picture.comments.length;
+
+  addThumbnailClickListener(thumbnail, picture);
 
   return thumbnail;
 };
