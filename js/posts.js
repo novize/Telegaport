@@ -12,8 +12,6 @@ const createPost = () => ({
   comments: Array.from({ length: getRandomInteger(0, COMMENTS_COUNT) }, createComment),
 });
 
-const postsGenerator = () => {
-  return Array.from({ length: POSTS }, createPost);
-};
+const postsGenerator = () => Array.from({ length: POSTS }, createPost);
 
 export { postsGenerator };

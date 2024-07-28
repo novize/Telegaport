@@ -37,6 +37,26 @@ const renderCommentsPart = () => {
   commentsLoader.classList.toggle('hidden', commentsShown >= commentsData.length);
 };
 
+const onDocumentKeydown = (evt) => {
+  if (evt.key === 'Escape') {
+    evt.preventDefault();
+    closeBigPicture();
+  }
+};
+
+const onCommentsLoaderClick = (evt) => {
+  evt.preventDefault();
+  renderCommentsPart();
+};
+
+const closeBigPicture = () => {
+  bigPictureElement.classList.add('hidden');
+  bodyElement.classList.remove('modal-open');
+
+  commentsLoader.removeEventListener('click', onCommentsLoaderClick);
+  document.removeEventListener('keydown', onDocumentKeydown);
+};
+
 const openBigPicture = ({ url, likes, comments, description }) => {
   bigPictureElement.classList.remove('hidden');
   bodyElement.classList.add('modal-open');
@@ -56,26 +76,6 @@ const openBigPicture = ({ url, likes, comments, description }) => {
 
   commentsLoader.addEventListener('click', onCommentsLoaderClick);
   document.addEventListener('keydown', onDocumentKeydown);
-};
-
-const closeBigPicture = () => {
-  bigPictureElement.classList.add('hidden');
-  bodyElement.classList.remove('modal-open');
-
-  commentsLoader.removeEventListener('click', onCommentsLoaderClick);
-  document.removeEventListener('keydown', onDocumentKeydown);
-};
-
-const onDocumentKeydown = (evt) => {
-  if (evt.key === 'Escape') {
-    evt.preventDefault();
-    closeBigPicture();
-  }
-};
-
-const onCommentsLoaderClick = (evt) => {
-  evt.preventDefault();
-  renderCommentsPart();
 };
 
 closeButton.addEventListener('click', closeBigPicture);
