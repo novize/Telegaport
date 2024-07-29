@@ -37,13 +37,6 @@ const renderCommentsPart = () => {
   commentsLoader.classList.toggle('hidden', commentsShown >= commentsData.length);
 };
 
-const onDocumentKeydown = (evt) => {
-  if (evt.key === 'Escape') {
-    evt.preventDefault();
-    closeBigPicture();
-  }
-};
-
 const onCommentsLoaderClick = (evt) => {
   evt.preventDefault();
   renderCommentsPart();
@@ -55,6 +48,13 @@ const closeBigPicture = () => {
 
   commentsLoader.removeEventListener('click', onCommentsLoaderClick);
   document.removeEventListener('keydown', onDocumentKeydown);
+};
+
+const onDocumentKeydown = (evt) => {
+  if (evt.key === 'Escape') {
+    evt.preventDefault();
+    closeBigPicture();
+  }
 };
 
 const openBigPicture = ({ url, likes, comments, description }) => {
