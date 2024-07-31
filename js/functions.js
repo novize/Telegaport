@@ -41,7 +41,6 @@ function numberExtractor(param) {
 
 numberExtractor('ECMAScript 2022');
 
-
 const stringConverter = (stringToInt) => {
   stringToInt = stringToInt.split(':');
   stringToInt = (parseInt(stringToInt[0], 10) * 60 + parseInt(stringToInt[1], 10));
