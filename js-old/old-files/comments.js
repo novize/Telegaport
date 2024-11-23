@@ -1,6 +1,6 @@
-import { AVATARS_COUNT, COMMENTATORS_NAMES, MESSAGES } from './data.js';
+import { AVATARS_COUNT, COMMENTATORS_NAMES, MESSAGES } from '../data.js';
 
-import { getRandomElement, getRandomInteger, createdIdComment } from './util.js';
+import { getRandomElement, getRandomInteger, createdIdComment } from '../util.js';
 
 const createComment = () => ({
   id: createdIdComment(),

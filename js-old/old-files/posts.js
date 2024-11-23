@@ -1,6 +1,6 @@
 import { POSTS, MIN_LIKES_COUNT, MAX_LIKES_COUNT, COMMENTS_COUNT, DESCRIPTIONS } from './data.js';
 
-import { getRandomInteger, createdIdPost, createdPhotoUrl, getRandomElement } from './util.js';
+import { getRandomInteger, createdIdPost, createdPhotoUrl, getRandomElement } from '../util.js';
 
 import { createComment } from './comments.js';
 
